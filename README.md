@@ -31,7 +31,7 @@ This app allows users to register, login, add income/expenses, and view their tr
 
 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/yourusername/expense-tracker.git
+git clone https://github.com/Rizwan102003/ExpenseTracker.git
 cd expense-tracker
 ```
 2️⃣ Setup Server (Backend)
