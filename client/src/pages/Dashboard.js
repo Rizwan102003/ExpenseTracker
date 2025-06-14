@@ -73,53 +73,69 @@ function Dashboard() {
   };
 
   return (
-    <div>
+    <div className="dashboard-container">
       <h1>Dashboard</h1>
 
       {/* Transaction Form */}
-      <h2>Add Transaction</h2>
-      <form onSubmit={handleTransactionSubmit}>
-        <select value={form.type} onChange={e => setForm({...form, type: e.target.value})}>
-          <option value="expense">Expense</option>
-          <option value="income">Income</option>
-        </select>
-        <input placeholder="Category" value={form.category} onChange={e => setForm({...form, category: e.target.value})} />
-        <input placeholder="Amount" type="number" value={form.amount} onChange={e => setForm({...form, amount: Number(e.target.value)})} />
-        <label>
-          <input type="checkbox" checked={form.isRecurring} onChange={e => setForm({...form, isRecurring: e.target.checked})} />
-          Recurring
-        </label>
-        <button type="submit">Add Transaction</button>
+      <form onSubmit={handleTransactionSubmit} className="form-section">
+        <h2>Add Transaction</h2>
+        <div className="form-group">
+          <select className="input-field" value={form.type} onChange={e => setForm({...form, type: e.target.value})}>
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <input className="input-field" placeholder="Category" value={form.category} onChange={e => setForm({...form, category: e.target.value})} />
+        </div>
+        <div className="form-group">
+          <input className="input-field" placeholder="Amount" type="number" value={form.amount} onChange={e => setForm({...form, amount: Number(e.target.value)})} />
+        </div>
+        <div className="form-group-checkbox">
+          <input id="isRecurring" className="input-field" type="checkbox" checked={form.isRecurring} onChange={e => setForm({...form, isRecurring: e.target.checked})} />
+          <label htmlFor="isRecurring">Recurring</label>
+        </div>
+        <button type="submit" className="btn">Add Transaction</button>
       </form>
 
       {/* Budget Form */}
-      <h2>Set Budget</h2>
-      <form onSubmit={handleBudgetSubmit}>
-        <input placeholder="Category" value={budgetForm.category} onChange={e => setBudgetForm({...budgetForm, category: e.target.value})} />
-        <input placeholder="Amount" type="number" value={budgetForm.amount} onChange={e => setBudgetForm({...budgetForm, amount: Number(e.target.value)})} />
-        <button type="submit">Set Budget</button>
+      <form onSubmit={handleBudgetSubmit} className="form-section">
+        <h2>Set Budget</h2>
+        <div className="form-group">
+          <input className="input-field" placeholder="Category" value={budgetForm.category} onChange={e => setBudgetForm({...budgetForm, category: e.target.value})} />
+        </div>
+        <div className="form-group">
+          <input className="input-field" placeholder="Amount" type="number" value={budgetForm.amount} onChange={e => setBudgetForm({...budgetForm, amount: Number(e.target.value)})} />
+        </div>
+        <button type="submit" className="btn">Set Budget</button>
       </form>
 
       {/* Display Budgets */}
-      <h3>Budgets</h3>
-      <ul>
-        {budgets.map(b => (
-          <li key={b._id}>{b.category} - ₹{b.amount}</li>
-        ))}
-      </ul>
+      <div className="list-section">
+        <h3>Budgets</h3>
+        <ul>
+          {budgets.map(b => (
+            <li key={b._id} className="list-item">{b.category} - ₹{b.amount}</li>
+          ))}
+        </ul>
+      </div>
 
       {/* Display Transactions */}
-      <h3>Transactions</h3>
-      <ul>
-        {transactions.map(t => (
-          <li key={t._id}>{t.type} - {t.category} - ₹{t.amount} {t.isRecurring ? "(Recurring)" : ""}</li>
-        ))}
-      </ul>
+      <div className="list-section">
+        <h3>Transactions</h3>
+        <ul>
+          {transactions.map(t => (
+            <li key={t._id} className="list-item">{t.type} - {t.category} - ₹{t.amount} {t.isRecurring ? "(Recurring)" : ""}</li>
+          ))}
+        </ul>
+      </div>
 
       {/* Pie Chart */}
-      <h3>Expense Distribution</h3>
-      <div style={{ width: '400px', margin: '0 auto' }}>
-        <Pie data={pieData} />
+      <div className="list-section">
+        <h3>Expense Distribution</h3>
+        <div className="chart-container">
+          <Pie data={pieData} />
+        </div>
       </div>
     </div>
   );

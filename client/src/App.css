@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  font-family: Arial, sans-serif; 
+  background-color: #f4f4f4;
+  color: #333; 
+  line-height: 1.6; 
+  padding: 20px; 
 }
 
 .App-logo {
@@ -21,4 +26,135 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  max-width: 900px;
+  margin: 30px auto; /* Increased top/bottom margin */
+  padding: 25px;    /* Slightly increased padding */
+  background-color: #fff; /* Give dashboard container a white background if body has a color */
+  box-shadow: 0 0 15px rgba(0,0,0,0.05); /* Subtle shadow for the container */
+  border-radius: 8px;
+}
+
+.form-section {
+  margin-bottom: 30px;
+  padding: 25px; /* Increased padding */
+  border: 1px solid #e0e0e0; /* Slightly softer border */
+  border-radius: 8px;
+  background-color: #fdfdfd; /* Slightly off-white if container is white */
+}
+
+/* .form-section h2 is targeted below with .list-section h3 */
+
+.list-section {
+  margin-bottom: 30px;
+  padding: 25px; /* Increased padding */
+  border: 1px solid #e0e0e0; /* Slightly softer border */
+  border-radius: 8px;
+  background-color: #fdfdfd; /* Slightly off-white if container is white */
+}
+
+/* .list-section h3 is targeted below */
+
+.list-item {
+  padding: 12px 0; /* Increased vertical padding */
+  border-bottom: 1px solid #eee;
+  line-height: 1.5; /* Ensure good line height for list items */
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.chart-container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+/* Form Element Styling */
+.input-field {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  outline: none;
+}
+
+select.input-field {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20d%3D%22M5%208l5%205%205-5z%22%20fill%3D%22%23555%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
+}
+
+.btn {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-group .input-field {
+  margin-bottom: 0;
+}
+
+.form-group-checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group-checkbox input[type='checkbox'].input-field {
+  margin-right: 10px;
+  width: auto;
+}
+
+.form-group-checkbox label {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+/* Typography & Spacing Enhancements */
+.dashboard-container h1 {
+  font-size: 2.25rem;
+  margin-bottom: 30px;
+  color: #333;
+  text-align: center; /* Center the main dashboard title */
+}
+
+.form-section h2,
+.list-section h3 { /* Targeting h2 in form-section and h3 in list-section */
+  font-size: 1.5rem; /* Slightly smaller than h1, but still prominent for sections */
+  margin-top: 0; /* Already there, but good to confirm */
+  margin-bottom: 20px; /* Increased bottom margin for section titles */
+  color: #444;
 }
