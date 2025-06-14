@@ -11,8 +11,8 @@ function SummaryChart() {
   const API = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    axios.get(`${API}/summary`, {
-      headers: { Authorization: token }
+    axios.get(`${API}/api/summary`, {
+      headers: { Authorization: `Bearer ${token}` }
     }).then(res => setSummary(res.data));
   }, []);
 

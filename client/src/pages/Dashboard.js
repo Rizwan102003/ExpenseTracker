@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { addTransaction, getTransactions } from '../api/transactions';
-import { addBudget, getBudgets } from '../api/budgets';
+import { addTransaction, getTransactions } from '../api/transactions.js';
+import { addBudget, getBudgets } from '../api/budgets.js';
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
 
