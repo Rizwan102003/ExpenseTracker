@@ -13,13 +13,21 @@ function Dashboard() {
   const token = localStorage.getItem('token');
 
   const loadTransactions = async () => {
-    const data = await getTransactions(token);
-    setTransactions(data);
+    try {
+      const data = await getTransactions(token);
+      setTransactions(data);
+    } catch (error) {
+      console.error("Error loading transactions:", error);
+    }
   };
 
   const loadBudgets = async () => {
-    const data = await getBudgets(token);
-    setBudgets(data);
+    try {
+      const data = await getBudgets(token);
+      setBudgets(data);
+    } catch (error) {
+      console.error("Error loading budgets:", error);
+    }
   };
 
   useEffect(() => {
@@ -29,16 +37,24 @@ function Dashboard() {
 
   const handleTransactionSubmit = async (e) => {
     e.preventDefault();
-    await addTransaction(form, token);
-    setForm({ type: 'expense', category: '', amount: '', isRecurring: false });
-    loadTransactions();
+    try {
+      await addTransaction(form, token);
+      setForm({ type: 'expense', category: '', amount: '', isRecurring: false });
+      loadTransactions();
+    } catch (error) {
+      console.error("Error adding transaction:", error);
+    }
   };
 
   const handleBudgetSubmit = async (e) => {
     e.preventDefault();
-    await addBudget(budgetForm, token);
-    setBudgetForm({ category: '', amount: '' });
-    loadBudgets();
+    try {
+      await addBudget(budgetForm, token);
+      setBudgetForm({ category: '', amount: '' });
+      loadBudgets();
+    } catch (error) {
+      console.error("Error adding budget:", error);
+    }
   };
 
   // Prepare data for Pie Chart
